@@ -1,14 +1,33 @@
 package openWheatherClient;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Scanner;
 
 public class HttpClient {
     public static void main(String[] args) throws Exception {
-        System.out.println(getLoremIpsum());
-    }
 
+        String myJSONString = getLoremIpsum();
+        JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
+
+        String result = jobj.get("coord").toString();
+        System.out.println("Dane potrzebne to : " + result);
+
+        JsonObject jobj2 = new Gson().fromJson(result, JsonObject.class);
+        String result2 = jobj2.get("lon").toString();
+        System.out.println();
+        System.out.println("lon = " + result2);
+
+
+    }
     private static final URI LOREM_URI =
             URI.create("https://api.openweathermap.org/data/2.5/weather?q=London&appid=38d62a1915e8917528881f48e4995ce0");
 
