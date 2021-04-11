@@ -7,7 +7,7 @@ import java.net.http.HttpResponse;
 public class HttpClient {
 
     private static final URI OPEN_WEATHER =
-            URI.create("https://api.openweathermap.org/data/2.5/weather?q=London&appid=38d62a1915e8917528881f48e4995ce0");
+            URI.create("https://api.openweathermap.org/data/2.5/weather?q="+"Rzeszów"+"&appid=38d62a1915e8917528881f48e4995ce0");
 
     public String getOpenWeather() throws Exception {
 
