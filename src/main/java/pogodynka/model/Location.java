@@ -5,8 +5,8 @@ public class Location {
     private String id;
     private String name;
     private String country;
-    private Double longitude;
-    private Double latitude;
+    private double longitude;
+    private double latitude;
 
     public Location(String id, String name, String country, Double longitude, Double latitude) {
         this.id = id;
