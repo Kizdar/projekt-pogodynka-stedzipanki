@@ -1,17 +1,24 @@
 package pogodynka;
 
-import java.util.Scanner;
+import pogodynka.forecast.ConstantOpenWeatherForecast;
+import pogodynka.forecast.OpenWeatherLocation;
+import pogodynka.interaction.User;
+
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        String miasto = " ";
+        OpenWeatherLocation location = new OpenWeatherLocation();
+        System.out.println("Witaj w programie Pogodynka - aplikacji do wyświetlania pogody :)");
+        User user =  new User();
+        user.getYourChoice();
+        System.out.println("Wybrałeś pogodę dla miejscowości: " + location.getCityName());
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Podaj miasto dla którego chcesz sprawdzić pogodę");
-        miasto = input.nextLine();
-
+        ConstantOpenWeatherForecast weatherForecast = new ConstantOpenWeatherForecast();
+        weatherForecast.getTemperature();
 
 
     }
+
+
 }

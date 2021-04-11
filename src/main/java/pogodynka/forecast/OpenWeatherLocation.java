@@ -12,4 +12,9 @@ public class OpenWeatherLocation {
         JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
         return jobj.get("name").toString();
     }
+    public String getCityCoordinates()  throws Exception {
+        String myJSONString = client.getOpenWeather();
+        JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
+        return jobj.get("coord").toString();
+    }
 }
