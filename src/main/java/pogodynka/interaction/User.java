@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class User {
     Scanner input = new Scanner(System.in);
 
-    OpenWeatherLocation openWeatherLocation = new OpenWeatherLocation();
 
     public String inputIdOfCity() throws Exception {
         System.out.println("Wpisz id miasta: ");
