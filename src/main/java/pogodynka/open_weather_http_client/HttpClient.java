@@ -1,20 +1,22 @@
-package pogodynka.httpClient;
+package pogodynka.open_weather_http_client;
 
 import java.net.URI;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class HttpClient {
+    ReadFromFile readFromFile = new ReadFromFile();
 
-    private static final URI OPEN_WEATHER =
-            URI.create("https://api.openweathermap.org/data/2.5/weather?q=London&appid=38d62a1915e8917528881f48e4995ce0");
-
-    public String getOpenWeather() throws Exception {
+    public URI openWeatherUri() {
+        final  URI OPEN_WEATHER =
+                URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + "Krosno" + "&appid=" + readFromFile.readKeyFromFile());
+        return OPEN_WEATHER;
+    }
+    public String getResponseOpenWeather() throws Exception {
 
         java.net.http.HttpClient client = java.net.http.HttpClient.newHttpClient();
-
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(OPEN_WEATHER)
+                .uri(openWeatherUri())
                 .GET()
                 .build();
         HttpResponse<String> response =
@@ -22,3 +24,4 @@ public class HttpClient {
         return response.body();
     }
 }
+
