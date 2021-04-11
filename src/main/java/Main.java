@@ -1,5 +1,7 @@
 import pogodynka.forecast.ConstantOpenWeatherForecast;
 import pogodynka.forecast.OpenWeatherLocation;
+import pogodynka.interaction.User;
+import pogodynka.model.Location;
 import pogodynka.open_weather_http_client.HttpClient;
 import pogodynka.open_weather_http_client.ReadFromFile;
 
@@ -22,5 +24,12 @@ public class Main {
 
         ReadFromFile readFromFile = new ReadFromFile();
         System.out.println(readFromFile.readKeyFromFile());
+
+        System.out.println("Witaj w programie Pogodynka - aplikacji do wyświetlania pogody :)");
+        User user = new User();
+        Location lokalizacja = user.getYourChoice();
+        System.out.println("Wybrałeś pogodę dla miejscowości: " + lokalizacja.getName());
     }
 }
+
+
