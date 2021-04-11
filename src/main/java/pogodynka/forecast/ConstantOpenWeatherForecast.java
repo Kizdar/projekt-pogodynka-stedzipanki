@@ -7,18 +7,41 @@ import pogodynka.httpClient.HttpClient;
 public class ConstantOpenWeatherForecast {
     HttpClient client = new HttpClient();
 
-    private String getTemp() throws Exception {
-
+    public String getInfo() throws Exception {
         String myJSONString = client.getOpenWeather();
         JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
+        return jobj.get("main").toString();
 
-        String result = jobj.get("coord").toString();
-        System.out.println("Dane potrzebne to : " + result);
+    }
 
-        JsonObject jobj2 = new Gson().fromJson(result, JsonObject.class);
-        String result2 = jobj2.get("lon").toString();
-        System.out.println();
-        System.out.println("lon = " + result2);
-        return null;
+    public String getPressure() throws Exception {
+        JsonObject jobj2 = new Gson().fromJson(getInfo(), JsonObject.class);
+        return jobj2.get("pressure").toString();
+
+    }
+
+    public String getTemperature() throws Exception {
+        JsonObject jobj2 = new Gson().fromJson(getInfo(), JsonObject.class);
+        return jobj2.get("temp").toString();
+
+    }
+
+    public String getHumidity() throws Exception {
+        JsonObject jobj2 = new Gson().fromJson(getInfo(), JsonObject.class);
+        return jobj2.get("humidity").toString();
+
+    }
+
+    public String getWindInfo() throws Exception {
+        String myJSONString = client.getOpenWeather();
+        JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
+        return jobj.get("wind").toString();
+
+    }
+
+    public String getCloudsInfo() throws Exception {
+        String myJSONString = client.getOpenWeather();
+        JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
+        return jobj.get("clouds").toString();
     }
 }
