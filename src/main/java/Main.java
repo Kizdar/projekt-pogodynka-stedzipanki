@@ -1,6 +1,4 @@
-package pogodynka;
-
-public class Pogoda {
+public class Main {
     public static void main(String[] args) {
 
     }
