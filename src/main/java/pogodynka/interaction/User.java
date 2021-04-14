@@ -48,14 +48,4 @@ public class User {
 
 }
 
-//    public static Location wybranaLokalizacja(){
-//        Location wybranaLokalizacja =  new Location(
-//                "id",
-//                "Rzeszów",
-//                "Polska",
-//                50.0,
-//                21.8);
-//
-//        System.out.printf("Wybrana lokalizacja to: ", wybranaLokalizacja.getName());
-//        return wybranaLokalizacja;
-//    }
+

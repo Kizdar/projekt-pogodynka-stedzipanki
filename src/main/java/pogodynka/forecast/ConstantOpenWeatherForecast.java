@@ -42,9 +42,9 @@ public class ConstantOpenWeatherForecast {
 
     public StringBuilder getForecast() throws Exception {
         return new StringBuilder("\n")
-                .append("Temperatura = " + getTemperature())
-                .append("\nCiśnienie = " + getPressure())
-                .append("\nWilgotność = " + getHumidity())
+                .append("Temperatura = " + getTemperature()+"'F")
+                .append("\nCiśnienie = " + getPressure()+" hPa")
+                .append("\nWilgotność = " + getHumidity()+"%")
                 .append("\nPrzejrzystość = " + getCloudsInfo())
                 .append("\nSiła wiatru = " + getWindInfo());
     }
