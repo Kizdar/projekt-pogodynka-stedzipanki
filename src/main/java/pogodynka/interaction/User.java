@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class User {
     Scanner input = new Scanner(System.in);
 
-
     public String inputIdOfCity() throws Exception {
         System.out.println("Wpisz id miasta: ");
         String id = input.nextLine();
@@ -18,7 +17,7 @@ public class User {
     public String inputCityName() throws Exception {
         System.out.println("Wpisz nazwę miasta: ");
         String miasto = input.nextLine();
-        return miasto;
+        return miasto.trim();
     }
     public String inputCountry() throws Exception{
         System.out.println("Wpisz kraj: ");
