@@ -1,13 +1,18 @@
 package pogodynka.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Location")
 public class Location {
 
+    @OneToMany(mappedBy = "location", fetch = FetchType.EAGER)
+    private Set<Weather> weathers = new HashSet<>();
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name  = "city_name")
@@ -18,6 +23,10 @@ public class Location {
     private double latitude;
 
     public Location() {
+    }
+
+    public Set<Weather> getWeathers() {
+        return weathers;
     }
 
     public Location(int id, String name, String country, Double longitude, Double latitude) {

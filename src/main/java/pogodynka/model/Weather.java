@@ -1,13 +1,22 @@
 package pogodynka.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Weather")
 public class Weather {
 
+    @ManyToOne
+    @JoinColumn(name = "id_location")
+    private Location location;
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "temperature")
