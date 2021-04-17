@@ -7,21 +7,25 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class HttpClient {
-    ReadFromFile readFromFile = new ReadFromFile();
-    User user = new User();
+    String upId = new ReadFromFile().readKeyFromFile();
 
-
-    public URI openWeatherUri() {
-
-        final URI OPEN_WEATHER =
-                URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + user.inputCityName() + "&appid=" + readFromFile.readKeyFromFile());
+    public URI openWeatherUri(String query) throws Exception {
+       User user = new User();
+        String https ="";
+        final  URI OPEN_WEATHER =
+                URI.create(new StringBuilder(https)
+                        .append("https://api.openweathermap.org/data/2.5/weather?q=")
+                        .append( query)
+                        .append("&appid=")
+                        .append(upId)
+                        .toString());
         return OPEN_WEATHER;
     }
-    public String getResponseOpenWeather() throws Exception {
+    public String getResponseOpenWeather(String query) throws Exception {
 
         java.net.http.HttpClient client = java.net.http.HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(openWeatherUri())
+                .uri(openWeatherUri(query))
                 .GET()
                 .build();
         HttpResponse<String> response =

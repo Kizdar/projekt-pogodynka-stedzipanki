@@ -7,8 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class Repo {
-    //    private static Integer id;
-//    private static Location location;
+
     private static Map<Integer, Location> saveMap = new HashMap<>();
 
     public static void putToMap(Integer key, Location location) {
