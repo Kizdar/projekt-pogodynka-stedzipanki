@@ -1,17 +1,50 @@
 package pogodynka.model;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "Weather")
 public class Weather {
 
+    @ManyToOne
+    @JoinColumn(name = "id_location")
+    private Location location;
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @Column(name = "temperature")
     private double temperature;
+
     private double pressure;
     private double wind;
     private double clouds;
+    private double humidity;
 
-    public Weather(double temperature, double pressure, double wind, double clouds) {
+    public Weather() {
+    }
+
+    public Weather(int id, double temperature, double pressure, double wind, double clouds, double humidity) {
+        this.id = id;
         this.temperature = temperature;
         this.pressure = pressure;
         this.wind = wind;
         this.clouds = clouds;
+        this.humidity = humidity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public double getTemperature() {
@@ -46,13 +79,12 @@ public class Weather {
         this.clouds = clouds;
     }
 
-    @Override
-    public String toString() {
-        return "Weather: " +
-                "temperature =" + temperature +
-                ", pressure =" + pressure +
-                ", wind =" + wind +
-                ", clouds =" + clouds +
-                '}';
+    public double getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(double humidity) {
+        this.humidity = humidity;
     }
 }
+
