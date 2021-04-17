@@ -6,12 +6,12 @@ import pogodynka.open_weather_http_client.HttpClient;
 
 public class ConstantOpenWeatherForecast extends OpenWeatherLocation {
     HttpClient client = new HttpClient();
-    Json json = new Json();
-
-
-    public void setJson() throws Exception {
-        json.setJson();
-    }
+//    Json json = new Json();
+//
+//
+//    public void setJson() throws Exception {
+//        json.setJson();
+//    }
 
     public String getInfo() throws Exception {
         String myJSONString = json.getJson();
@@ -35,13 +35,13 @@ public class ConstantOpenWeatherForecast extends OpenWeatherLocation {
     }
 
     public String getWindInfo() throws Exception {
-        String myJSONString = client.getResponseOpenWeather();
+        String myJSONString = json.getJson();
         JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
         return jobj.get("wind").toString();
     }
 
     public String getCloudsInfo() throws Exception {
-        String myJSONString = client.getResponseOpenWeather();
+        String myJSONString = json.getJson();
         JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
         return jobj.get("clouds").toString();
     }

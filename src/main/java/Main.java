@@ -10,6 +10,7 @@ import pogodynka.open_weather_http_client.ReadFromFile;
 public class Main {
     public static void main(String[] args) throws Exception {
   //      HttpClient client = new HttpClient();
+        System.out.println("Witaj w programie Pogodynka - aplikacji do wyświetlania pogody :)");
         ConstantOpenWeatherForecast forecast = newJson();
 
 
@@ -34,8 +35,8 @@ public class Main {
 //        System.out.println("Wybrałeś pogodę dla miejscowości: " + lokalizacja.getName());
     }
     public static void startApp(String city,StringBuilder wather) throws Exception {
-        System.out.println("Witaj w programie Pogodynka - aplikacji do wyświetlania pogody :)");
-        System.out.println("Proszę wpisać miasto:");
+      //  System.out.println("Witaj w programie Pogodynka - aplikacji do wyświetlania pogody :)");
+      //  System.out.println("Proszę wpisać miasto:");
        // newJson();
         System.out.print("Aktualna pogoda dla miasta: ");
         System.out.print(city);
@@ -48,9 +49,8 @@ public class Main {
 
     private static ConstantOpenWeatherForecast newJson() throws Exception {
         ConstantOpenWeatherForecast forecast = new ConstantOpenWeatherForecast();
-        OpenWeatherLocation location = new OpenWeatherLocation();
         forecast.setJson();
-        location.setJson();
+
         return forecast;
     }
 
