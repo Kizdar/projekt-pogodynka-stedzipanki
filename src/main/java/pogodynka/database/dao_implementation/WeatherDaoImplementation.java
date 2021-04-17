@@ -1,60 +1,40 @@
 package pogodynka.database.dao_implementation;
 
-public class WeatherDaoImplementation {
+import pogodynka.database.dao.WeatherDao;
+import pogodynka.model.Weather;
+
+import java.util.List;
+
+public class WeatherDaoImplementation implements WeatherDao {
     private double temperature;
     private double pressure;
     private double wind;
     private int clouds;
     private int humidity;
 
-    public WeatherDaoImplementation(double temperature, double pressure, double wind, int clouds, int humidity) {
-        this.temperature = temperature;
-        this.pressure = pressure;
-        this.wind = wind;
-        this.clouds = clouds;
-        this.humidity = humidity;
+
+    @Override
+    public void save(Weather weather) {
+
     }
 
-    public WeatherDaoImplementation() {
+    @Override
+    public Weather findById(Long id) {
+        return null;
     }
 
-    public double getTemperature() {
-        return temperature;
+    @Override
+    public List<Weather> findAll() {
+        return null;
     }
 
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
+    @Override
+    public void deleteById(Long id) {
+
     }
 
-    public double getPressure() {
-        return pressure;
-    }
-
-    public void setPressure(double pressure) {
-        this.pressure = pressure;
-    }
-
-    public double getWind() {
-        return wind;
-    }
-
-    public void setWind(double wind) {
-        this.wind = wind;
-    }
-
-    public int getClouds() {
-        return clouds;
-    }
-
-    public void setClouds(int clouds) {
-        this.clouds = clouds;
-    }
-
-    public int getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(int humidity) {
-        this.humidity = humidity;
+    @Override
+    public List<Weather> findByName(Weather weather) {
+        return null;
     }
 }
