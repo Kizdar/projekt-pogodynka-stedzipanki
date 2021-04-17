@@ -1,50 +1,44 @@
 package pogodynka.interaction;
 
-import pogodynka.forecast.OpenWeatherLocation;
 import pogodynka.model.Location;
 
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class User {
     Scanner input = new Scanner(System.in);
 
-    public String inputIdOfCity() throws Exception {
+    public int inputIdOfCity() {
         System.out.println("Wpisz id miasta: ");
-        String id = input.nextLine();
-        return id;
+        return input.nextInt();
     }
 
-    public String inputCityName() throws Exception {
-        System.out.println("Wpisz nazwę miasta: ");
-        String miasto = input.nextLine();
-        return miasto.trim();
+    public String inputCityName() {
+        System.out.println("Wpisz nazwę miasta : ");
+        return input.nextLine();
     }
-    public String inputCountry() throws Exception{
+
+    public String inputCountry() {
         System.out.println("Wpisz kraj: ");
-        String kraj = input.nextLine();
-        return kraj;
+        return input.nextLine();
     }
 
-    public double inputLongitude() throws Exception {
+    public double inputLongitude() {
         System.out.println("Wpisz długość: ");
-        double longitude = input.nextDouble();
-        return longitude;
+        return input.nextDouble();
     }
 
-    public double inputLatitude() throws Exception {
+    public double inputLatitude() {
         System.out.println("Wpisz szerokość: ");
-        double latitude = input.nextDouble();
-        return latitude;
+        return input.nextDouble();
     }
 
-
-    public Location getYourChoice() throws Exception {
+    public Location getYourChoice() {
 //        System.out.println("Wpisz dane lokalizacji: ");
 
-        return new Location(inputIdOfCity(), inputCityName(),inputCountry(),inputLongitude(),inputLatitude() );
+        return new Location(inputIdOfCity(), inputCityName(), inputCountry(), inputLongitude(), inputLatitude());
     }
-
-
 }
 
 

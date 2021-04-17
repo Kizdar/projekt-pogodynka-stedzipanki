@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 import pogodynka.open_weather_http_client.HttpClient;
 
 public class OpenWeatherLocation {
-   // HttpClient client = new HttpClient();
 Json json = new Json();
 
     public void setJson() throws Exception {
@@ -18,19 +17,24 @@ Json json = new Json();
         return jobj.get("name").toString();
     }
 
-    public String getCityCoordinates()  throws Exception {
+    public double getLatitude() throws Exception {
         String myJSONString = json.getJson();
         JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
-        return jobj.get("coord").toString();
+        String result = jobj.getAsJsonObject("coord").get("lat").toString();
+        return Double.parseDouble(result);
+    }
+
+    public double getLongitude() throws Exception {
+        String myJSONString = json.getJson();
+        JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
+        String result = jobj.getAsJsonObject("coord").get("lon").toString();
+        return Double.parseDouble(result);
     }
 
     public String getCityCountry() throws Exception {
         String myJSONString = json.getJson();
         JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
-        String result = jobj.get("sys").toString();
-
-        JsonObject jobj2 = new Gson().fromJson(result, JsonObject.class);
-        return jobj2.get("country").toString();
+        return jobj.getAsJsonObject("sys").get("country").toString();
     }
 
 }
