@@ -1,28 +1,13 @@
-package pogodynka.model;
+package pogodynka.database.dao_implementation;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "Weather")
-public class Weather {
-
-    @Id
-    @GeneratedValue
-    private int id;
-
-    @Column(name = "temperature")
+public class WeatherDaoImplementation {
     private double temperature;
-
     private double pressure;
     private double wind;
-    private double clouds;
-    private double humidity;
+    private int clouds;
+    private int humidity;
 
-    public Weather() {
-    }
-
-    public Weather(int id, double temperature, double pressure, double wind, double clouds, double humidity) {
-        this.id = id;
+    public WeatherDaoImplementation(double temperature, double pressure, double wind, int clouds, int humidity) {
         this.temperature = temperature;
         this.pressure = pressure;
         this.wind = wind;
@@ -30,12 +15,7 @@ public class Weather {
         this.humidity = humidity;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public WeatherDaoImplementation() {
     }
 
     public double getTemperature() {
@@ -62,20 +42,19 @@ public class Weather {
         this.wind = wind;
     }
 
-    public double getClouds() {
+    public int getClouds() {
         return clouds;
     }
 
-    public void setClouds(double clouds) {
+    public void setClouds(int clouds) {
         this.clouds = clouds;
     }
 
-    public double getHumidity() {
+    public int getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(double humidity) {
+    public void setHumidity(int humidity) {
         this.humidity = humidity;
     }
 }
-

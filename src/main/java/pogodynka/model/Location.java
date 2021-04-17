@@ -1,14 +1,26 @@
 package pogodynka.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Location")
 public class Location {
 
-    private String id;
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @Column(name  = "city_name")
     private String name;
+
     private String country;
     private double longitude;
     private double latitude;
 
-    public Location(String id, String name, String country, Double longitude, Double latitude) {
+    public Location() {
+    }
+
+    public Location(int id, String name, String country, Double longitude, Double latitude) {
         this.id = id;
         this.name = name;
         this.country = country;
@@ -16,11 +28,11 @@ public class Location {
         this.latitude = latitude;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
