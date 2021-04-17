@@ -4,11 +4,17 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import pogodynka.open_weather_http_client.HttpClient;
 
-public class ConstantOpenWeatherForecast {
+public class ConstantOpenWeatherForecast extends OpenWeatherLocation {
     HttpClient client = new HttpClient();
+    Json json = new Json();
+
+
+    public void setJson() throws Exception {
+        json.setJson();
+    }
 
     public String getInfo() throws Exception {
-        String myJSONString = client.getResponseOpenWeather();
+        String myJSONString = json.getJson();
         JsonObject jobj = new Gson().fromJson(myJSONString, JsonObject.class);
         return jobj.get("main").toString();
     }
